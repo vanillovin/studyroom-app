@@ -1,0 +1,32 @@
+.mypage-container {
+  border: 2px solid #1864ab;
+  border-radius: 10px;
+  width: 700px;
+  margin-top: 100px;
+  padding: 40px 60px;
+}
+.user {
+  display: flex;
+}
+.user .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.mpbtn-container button {
+  width: 80px;
+  height: 40px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #339af0;
+  margin: 5px;
+}
+.mpbtn-container button:last-child {
+  background-color: #ff6b6b;
+}
+@media screen and (max-width: 1000px) {
+}
