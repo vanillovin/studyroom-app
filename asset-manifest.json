@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/studyroom-app/static/css/main.921f9fd5.chunk.css",
+    "main.js": "/studyroom-app/static/js/main.3332590e.chunk.js",
+    "main.js.map": "/studyroom-app/static/js/main.3332590e.chunk.js.map",
+    "runtime-main.js": "/studyroom-app/static/js/runtime-main.93190b20.js",
+    "runtime-main.js.map": "/studyroom-app/static/js/runtime-main.93190b20.js.map",
+    "static/js/2.ab93fc9b.chunk.js": "/studyroom-app/static/js/2.ab93fc9b.chunk.js",
+    "static/js/2.ab93fc9b.chunk.js.map": "/studyroom-app/static/js/2.ab93fc9b.chunk.js.map",
+    "static/js/3.147b4cef.chunk.js": "/studyroom-app/static/js/3.147b4cef.chunk.js",
+    "static/js/3.147b4cef.chunk.js.map": "/studyroom-app/static/js/3.147b4cef.chunk.js.map",
+    "index.html": "/studyroom-app/index.html",
+    "static/css/main.921f9fd5.chunk.css.map": "/studyroom-app/static/css/main.921f9fd5.chunk.css.map",
+    "static/js/2.ab93fc9b.chunk.js.LICENSE.txt": "/studyroom-app/static/js/2.ab93fc9b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.93190b20.js",
+    "static/js/2.ab93fc9b.chunk.js",
+    "static/css/main.921f9fd5.chunk.css",
+    "static/js/main.3332590e.chunk.js"
+  ]
+}
