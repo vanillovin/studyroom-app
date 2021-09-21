@@ -12,9 +12,6 @@ function Login() {
 
   const history = useHistory();
 
-  const idErrMsg = '아이디를 잘못 입력하셨습니다.';
-  const pwErrMsg = '비밀번호가 틀렸습니다.';
-
   const onChange = (e) => {
     const { name, value } = e.target;
     setLoginInputs({
@@ -24,25 +21,24 @@ function Login() {
   };
 
   const fetchLogin = () => {
+    const idErrMsg = '아이디를 잘못 입력하셨습니다.';
+    const pwErrMsg = '비밀번호가 틀렸습니다.';
     let body = {
       loginId,
       password,
     };
     axios({
       method: 'POST',
-      // url: 'http://3.38.17.21:8080/users/login',
-      url: 'http://52.79.80.209:8080/users/login',
+      url: 'http://3.38.17.21:8080/users/login',
+      // url: 'http://52.79.80.209:8080/users/login',
       data: body,
       withCredentials: true,
     })
       .then((res) => {
         console.log('login res /', res);
-
-        if (res.status === 200) {
-          alert('로그인 완료!');
-          sessionStorage.setItem('isAuthorized', 'true');
-          history.push('/');
-        }
+        alert('로그인이 완료됐습니다');
+        sessionStorage.setItem('isAuthorized', 'true');
+        history.push('/');
       })
       .catch((err) => {
         console.log('login err /', err.response.data);
@@ -52,8 +48,8 @@ function Login() {
       });
   };
 
+  // 빈문자열만확인?
   const login = () => {
-    console.log('loginId:', loginId, '/ password:', password);
     if (loginId !== '' && password !== '') {
       fetchLogin();
     } else {
