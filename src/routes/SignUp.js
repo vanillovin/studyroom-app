@@ -38,7 +38,10 @@ function Signup({ history }) {
     axios
       .post('http://3.38.17.21:8080/users', body)
       // .post('http://52.79.80.209:8080/users', body)
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log('signup response', response);
+        alert('가입 완료됐습니다.');
+      })
       .catch((error) => console.log('error', error));
   }
 

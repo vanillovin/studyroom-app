@@ -8,16 +8,48 @@ function MyPage() {
   const history = useHistory();
 
   const exit = () => {
-    window.confirm('퇴실하시겠습니까?') &&
+    window.confirm('퇴실하시겠습니까? 자동 로그아웃됩니다') &&
       axios
-        .delete('http://3.38.17.21:8080/reservation')
+        .delete('http://3.38.17.21:8080/reservation', { withCredentials: true })
         // .delete('http://52.79.80.209:8080/reservation')
-        .then((res) => console.log('exit res', res))
+        .then((res) => {
+          console.log('exit res', res);
+          sessionStorage.removeItem('isAuthorized');
+          alert('로그아웃이 완료됐습니다');
+          history.push('/login');
+        })
         .catch((err) => console.log('exit err', err.response.data));
   };
 
+  const askSeatNumber = () => {
+    let test = true;
+    while (test) {
+      const seatNumber = window.prompt(
+        '몇 번 좌석으로 이동하시겠습니까? (1-47번 중 숫자만 입력해 주세요)'
+      );
+      if (!isNaN(seatNumber) && seatNumber < 48 && seatNumber !== '') {
+        console.log('not NaN /', seatNumber, '/', typeof seatNumber);
+        test = false;
+        return seatNumber;
+      }
+    }
+  };
+
   const changeSeat = () => {
-    return alert('자리를 이동하시겠습니까?');
+    const seatNumber = askSeatNumber();
+    axios({
+      method: 'PUT',
+      url: 'http://3.38.17.21:8080/reservation',
+      data: { seatNumber },
+      withCredentials: true,
+    })
+      .then((res) => {
+        console.log('exit res', res);
+        alert(`${seatNumber}번으로 좌석 이동 완료. 자동 로그아웃됩니다`);
+        sessionStorage.removeItem('isAuthorized');
+        history.push('/login');
+      })
+      .catch((err) => console.log('exit err', err.response.data));
   };
 
   const logout = () => {
@@ -53,7 +85,7 @@ function MyPage() {
         </div>
       </div>
 
-      <div className="userVoucher">이용 가능한 시간: {50}시간</div>
+      <div className="userVoucher">이용 가능한 시간: {1}시간</div>
     </div>
   );
 }
