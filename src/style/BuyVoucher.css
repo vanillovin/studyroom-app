@@ -7,21 +7,28 @@
 
 .day,
 .month {
+  cursor: pointer;
   border: none;
-  width: 280px;
+  width: 300px;
   height: 200px;
   font-size: 40px;
   border-radius: 10px;
-  background-color: rgb(62, 91, 187);
+  background-color: #339af0;
   color: white;
   margin: 100px;
+  font-weight: 500;
+}
+
+.day:hover,
+.month:hover {
+  background-color: #1864ab;
 }
 
 @media screen and (max-width: 1000px) {
   .buyVoucher button {
-    width: 150px;
-    height: 100px;
-    font-size: 20px;
+    width: 200px;
+    height: 120px;
+    font-size: 26px;
     color: white;
     margin: 60px;
   }

@@ -128,7 +128,7 @@ function Signup({ history }) {
         onChange={onChange}
         placeholder="이름을 입력해주세요."
       />
-      <p>{checkUsername()}</p>
+      <p className="check">{checkUsername()}</p>
       <h4>아이디</h4>
       <input
         type="text"
@@ -138,7 +138,7 @@ function Signup({ history }) {
         onChange={onChange}
         placeholder="아이디를 입력해주세요."
       />
-      <p>{checkUserid()}</p>
+      <p className="check">{checkUserid()}</p>
       <h4>나이</h4>
       <input
         type="number"
@@ -165,7 +165,7 @@ function Signup({ history }) {
         onChange={onChange}
         placeholder="비밀번호를 입력해주세요."
       />
-      <p>{checkPW()}</p>
+      <p className="check">{checkPW()}</p>
       <input
         type="password"
         name="checkPassword"
@@ -175,7 +175,7 @@ function Signup({ history }) {
         onChange={onChange}
         placeholder="비밀번호를 확인합니다."
       />
-      <p>{checkPW()}</p>
+      <p className="check">{checkPW()}</p>
       <button className="signup-btn" type="submit" onClick={onSignupSubmit}>
         가입하기
       </button>

@@ -74,8 +74,8 @@ function MyPage() {
             <BsPerson size="60" />
           </div>
           <div className="info">
-            <h3>{'홍길동'}님</h3>
-            <h4>{'id'}</h4>
+            <span>{'홍길동'}님</span>
+            <span>{'id'}</span>
           </div>
         </div>
         <div className="mpbtn-container">

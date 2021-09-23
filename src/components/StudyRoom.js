@@ -56,7 +56,6 @@ function Room() {
     { num: 46, name: '', gender: '' },
     { num: 47, name: '', gender: '' },
   ]);
-  const [seatNumber, setSeatNumber] = useState();
   const history = useHistory();
 
   useEffect(() => {
@@ -74,43 +73,13 @@ function Room() {
           seats.filter(({ num }) => !newSeatArr.find((f) => f.num === num))
         );
         const sortResult = result.sort((a, b) => a.num - b.num);
-        console.log('sort result', sortResult);
+        // console.log('sort result', sortResult);
         setSeats(sortResult);
       })
       .catch((err) => console.log(err.response.data));
-
-    // let abortController = new AbortController();
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await axios.get('http://3.38.17.21:8080/seats', {
-    //       withCredentials: true,
-    //       signal: abortController.signal,
-    //     });
-    //     const newData = await response.data;
-    //     const newSeatArr = newData.map((t) => ({
-    //       num: t.seatNumber,
-    //       gender: t.gender,
-    //     }));
-    //     const result = newSeatArr.concat(
-    //       seats.filter(({ num }) => !newSeatArr.find((f) => f.num === num))
-    //     );
-    //     const sortResult = result.sort((a, b) => a.num - b.num);
-    //     console.log('sort result', sortResult);
-    //     setSeats(sortResult);
-    //   } catch (error) {
-    //     if (error.name === 'AbortError') {
-    //       // requset를 abort하는 과정에서 에러 발생
-    //       console.log('abort error?', error);
-    //     }
-    //   }
-    // };
-    // fetchData();
-    // return () => {
-    //   abortController.abort();
-    // };
   }, []);
 
-  console.log('rendering');
+  // console.log('rendering');
 
   // const openModal = (num) => {
   //   setSeatNumber(num);

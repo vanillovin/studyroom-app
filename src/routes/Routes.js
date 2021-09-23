@@ -21,26 +21,3 @@ function Routes() {
 }
 
 export default Routes;
-
-// return (
-//   <>
-//     {/* {isLoggedIn && <NavBar />} */}
-//     <NavBar />
-//     <Switch>
-//       {/* <Route exact path="/">
-//           {isLoggedIn ? <StudyRoom /> : <Redirect to="/login" />}
-//         </Route>
-//         <Route
-//           exact
-//           path="/login"
-//           render={() => <Login onLogIn={onLogIn} />}
-//         /> */}
-//       <Route exact path="/" component={StudyRoom} />
-//       <Route exact path="/login" component={Login} />
-//       <Route exact path="/signup" component={SignUp} />
-//       <Route exact path="/buy" component={BuyVoucher} />
-//       <Route exact path="/mypage" component={MyPage} />
-//       <Redirect from="*" to="/" />
-//     </Switch>
-//   </>
-// );

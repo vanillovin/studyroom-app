@@ -77,9 +77,9 @@ function Login() {
       <button className="login-btn" type="submit" onClick={login}>
         로그인
       </button>
-      <h5>
+      <h5 style={{ textAlign: 'center' }}>
         아직 계정이 없으신가요?
-        <Link to="/signup" className="signup">
+        <Link to="/signup" className="gosignup-btn">
           가입하기
         </Link>
         {/* 아직 계정이 없으신가요? <a href="() => false">가입하기</a> */}
