@@ -1,9 +1,10 @@
 .mypage-container {
+  width: 700px;
+  /* height: 400px; */
+  margin-top: 200px;
+  padding: 40px 60px;
   border: 2px solid #1864ab;
   border-radius: 10px;
-  width: 700px;
-  margin-top: 100px;
-  padding: 40px 60px;
 }
 .user {
   display: flex;

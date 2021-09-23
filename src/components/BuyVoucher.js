@@ -9,8 +9,8 @@ function BuyVoucher() {
     };
     axios({
       method: 'POST',
-      // url: 'http://3.38.17.21:8080/orders',
-      url: 'http://52.79.80.209:8080/orders',
+      url: 'http://3.38.17.21:8080/orders',
+      // url: 'http://52.79.80.209:8080/orders',
       data: ticket,
       withCredentials: true,
     })

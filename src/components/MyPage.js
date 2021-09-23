@@ -8,7 +8,12 @@ function MyPage() {
   const history = useHistory();
 
   const exit = () => {
-    return alert('퇴실하시겠습니까?');
+    window.confirm('퇴실하시겠습니까?') &&
+      axios
+        .delete('http://3.38.17.21:8080/reservation')
+        // .delete('http://52.79.80.209:8080/reservation')
+        .then((res) => console.log('exit res', res))
+        .catch((err) => console.log('exit err', err.response.data));
   };
 
   const changeSeat = () => {
@@ -16,14 +21,17 @@ function MyPage() {
   };
 
   const logout = () => {
-    axios
-      .delete('http://52.79.80.209:8080/users/logout')
-      .then((res) => {
-        console.log('logout', res);
-        sessionStorage.removeItem('isAuthorized');
-        history.push('/login');
-      })
-      .catch((err) => console.log('orders err', err.response.data));
+    window.confirm('로그아웃하시겠습니까?') &&
+      axios
+        .delete('http://3.38.17.21:8080/users/logout')
+        // .delete('http://52.79.80.209:8080/users/logout')
+        .then((res) => {
+          console.log('logout', res);
+          sessionStorage.removeItem('isAuthorized');
+          alert('로그아웃이 완료됐습니다');
+          history.push('/login');
+        })
+        .catch((err) => console.log('orders err', err.response.data));
   };
 
   return (

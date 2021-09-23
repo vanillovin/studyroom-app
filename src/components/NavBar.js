@@ -12,7 +12,7 @@ function NavBar() {
           </div>
           <ul>
             <li>
-              <NavLink exact to="/" activeClassName="active">
+              <NavLink exact to="/seats" activeClassName="active">
                 좌석현황
               </NavLink>
             </li>

@@ -1,37 +1,26 @@
 import React from 'react';
 
-function SeatTable({ id, active, gender, onClick }) {
+function SeatTable({ num, gender, onClick }) {
   return (
-    <>
-      <div
-        id={id}
-        data-active={active}
-        className="table"
-        // className={`table${id}`}
+    <div
+      id={num}
+      className="table"
+      style={{
+        backgroundColor: gender ? 'lightblue' : 'beige',
+      }}
+      onClick={onClick}
+    >
+      {num}{' '}
+      <span
         style={{
-          display: 'flex',
-          fontSize: 14,
-          fontWeight: 500,
-          padding: '2px 0 0 4px',
-          boxSizing: 'border-box',
-          backgroundColor: active ? 'lightblue' : 'beige',
-          cursor: 'pointer',
-          borderRadius: 6,
+          fontSize: 20,
+          padding: '0 0 0 5px',
+          color: gender === 'MALE' ? 'blue' : 'red',
         }}
-        onClick={onClick}
       >
-        {id}{' '}
-        <span
-          style={{
-            fontSize: 20,
-            padding: '0 0 0 5px',
-            color: gender === 'male' ? 'blue' : 'red',
-          }}
-        >
-          {active ? (gender === 'male' ? '♂' : '♀') : null}
-        </span>
-      </div>
-    </>
+        {!(gender === '') ? (gender === 'MALE' ? '♂' : '♀') : null}
+      </span>
+    </div>
   );
 }
 
