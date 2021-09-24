@@ -62,7 +62,6 @@ function Room() {
     axios
       .get('http://3.38.17.21:8080/seats', { withCredentials: true })
       .then((res) => {
-        console.log(res.data);
         const newData = res.data;
         const newSeatArr = newData.map((t) => ({
           num: t.seatNumber,
@@ -73,7 +72,6 @@ function Room() {
           seats.filter(({ num }) => !newSeatArr.find((f) => f.num === num))
         );
         const sortResult = result.sort((a, b) => a.num - b.num);
-        // console.log('sort result', sortResult);
         setSeats(sortResult);
       })
       .catch((err) => console.log(err.response.data));
@@ -91,20 +89,17 @@ function Room() {
   // };
 
   const seatReservation = (seatNumber) => {
-    window.confirm(
-      `${seatNumber}좌석을 예약하시겠습니까? 자동 로그아웃 됩니다.`
-    ) &&
+    window.confirm(`${seatNumber}번 좌석을 예약하시겠습니까?`) &&
       axios({
         method: 'POST',
         url: 'http://3.38.17.21:8080/reservation',
-        // url: 'http://52.79.80.209:8080/reservation',
         data: { seatNumber },
         withCredentials: true,
       })
         .then((res) => {
           console.log('orders res', res);
           sessionStorage.removeItem('isAuthorized');
-          alert('좌석 예약 완료');
+          alert('좌석 예약 완료. 자동 로그아웃 됩니다');
           history.push('/login');
         })
         .catch((err) => {

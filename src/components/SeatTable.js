@@ -12,9 +12,8 @@ function SeatTable({ num, gender, onClick }) {
     >
       {num}{' '}
       <span
+        className="gender"
         style={{
-          fontSize: 20,
-          padding: '0 0 0 5px',
           color: gender === 'MALE' ? 'blue' : 'red',
         }}
       >

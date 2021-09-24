@@ -13,6 +13,9 @@
 .login-container {
   margin-top: 200px;
 }
+.login-container > h1 {
+  margin-bottom: 30px;
+}
 h1 {
   font-size: 26px;
 }
@@ -58,7 +61,7 @@ select:focus {
   border-radius: 4px;
   background-color: rgb(52, 152, 219);
   padding: 14px 0;
-  margin: 20px 0;
+  margin: 18px 0;
   font-weight: 700;
 }
 .signup-btn:hover,

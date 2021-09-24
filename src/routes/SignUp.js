@@ -37,7 +37,6 @@ function Signup({ history }) {
 
     axios
       .post('http://3.38.17.21:8080/users', body)
-      // .post('http://52.79.80.209:8080/users', body)
       .then((response) => {
         console.log('signup response', response);
         alert('가입 완료됐습니다.');
@@ -84,8 +83,8 @@ function Signup({ history }) {
   const checkPW = () => {
     if (!password) return;
     if (password === '') return;
-    if (password.length < 6 || password.length > 20) {
-      return '비밀번호는 6자 이상, 20자 이하로 입력하세요.';
+    if (password.length < 4 || password.length > 20) {
+      return '비밀번호는 4자 이상, 20자 이하로 입력하세요.';
     }
     if (password !== checkPassword) return '비밀번호가 일치하지 않습니다.';
     return true;
@@ -108,10 +107,9 @@ function Signup({ history }) {
     ) {
       console.log('가입완료');
       fetchSignUp();
-      // 로그인페이지로 이동
-      history.push('/login');
+      history.push('/login'); // 로그인페이지로 이동
     } else {
-      console.log('빈문자열or조건불만족');
+      console.log('빈 문자열 or 조건 불만족');
     }
   };
 
@@ -160,7 +158,7 @@ function Signup({ history }) {
         type="password"
         name="password"
         value={password}
-        minLength="6"
+        minLength="4"
         maxLength="20"
         onChange={onChange}
         placeholder="비밀번호를 입력해주세요."
@@ -170,7 +168,7 @@ function Signup({ history }) {
         type="password"
         name="checkPassword"
         value={checkPassword}
-        minLength="6"
+        minLength="4"
         maxLength="20"
         onChange={onChange}
         placeholder="비밀번호를 확인합니다."

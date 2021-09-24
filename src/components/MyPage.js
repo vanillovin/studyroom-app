@@ -11,7 +11,6 @@ function MyPage() {
     window.confirm('퇴실하시겠습니까? 자동 로그아웃됩니다') &&
       axios
         .delete('http://3.38.17.21:8080/reservation', { withCredentials: true })
-        // .delete('http://52.79.80.209:8080/reservation')
         .then((res) => {
           console.log('exit res', res);
           sessionStorage.removeItem('isAuthorized');
@@ -37,26 +36,30 @@ function MyPage() {
 
   const changeSeat = () => {
     const seatNumber = askSeatNumber();
-    axios({
-      method: 'PUT',
-      url: 'http://3.38.17.21:8080/reservation',
-      data: { seatNumber },
-      withCredentials: true,
-    })
-      .then((res) => {
-        console.log('exit res', res);
-        alert(`${seatNumber}번으로 좌석 이동 완료. 자동 로그아웃됩니다`);
-        sessionStorage.removeItem('isAuthorized');
-        history.push('/login');
+    seatNumber !== null && // 취소
+      axios({
+        method: 'PUT',
+        url: 'http://3.38.17.21:8080/reservation',
+        data: { seatNumber },
+        withCredentials: true,
       })
-      .catch((err) => console.log('exit err', err.response.data));
+        .then((res) => {
+          console.log('exit res', res);
+          alert(`${seatNumber}번으로 좌석 이동 완료. 자동 로그아웃됩니다`);
+          sessionStorage.removeItem('isAuthorized');
+          history.push('/login');
+        })
+        .catch((err) => {
+          console.log('exit err', err.response.data);
+          const errMsg = '이미 좌석이 사용중입니다.';
+          if (err.response.data.message === errMsg) alert(errMsg);
+        });
   };
 
   const logout = () => {
     window.confirm('로그아웃하시겠습니까?') &&
       axios
         .delete('http://3.38.17.21:8080/users/logout')
-        // .delete('http://52.79.80.209:8080/users/logout')
         .then((res) => {
           console.log('logout', res);
           sessionStorage.removeItem('isAuthorized');
