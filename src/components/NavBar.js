@@ -12,6 +12,11 @@ function NavBar() {
           </div>
           <ul>
             <li>
+              <NavLink exact to="/notice" activeClassName="active">
+                공지
+              </NavLink>
+            </li>
+            <li>
               <NavLink exact to="/seats" activeClassName="active">
                 좌석현황
               </NavLink>

@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router';
 
 function Room() {
-  // const [showModal, setShowModal] = useState(false);
+  const history = useHistory();
   const [seats, setSeats] = useState([
     { num: 1, name: '', gender: '' },
     { num: 2, name: '', gender: '' },
@@ -56,7 +56,7 @@ function Room() {
     { num: 46, name: '', gender: '' },
     { num: 47, name: '', gender: '' },
   ]);
-  const history = useHistory();
+  // const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     axios
@@ -72,10 +72,15 @@ function Room() {
           seats.filter(({ num }) => !newSeatArr.find((f) => f.num === num))
         );
         const sortResult = result.sort((a, b) => a.num - b.num);
+        console.log(sortResult);
         setSeats(sortResult);
       })
-      .catch((err) => console.log(err.response.data));
-  }, []);
+      .catch((err) => {
+        console.log(err.response.data);
+        alert(err.response.data.message);
+        history.push('/login');
+      });
+  }, [history]);
 
   // console.log('rendering');
 
@@ -88,19 +93,20 @@ function Room() {
   //   setShowModal(false);
   // };
 
-  const seatReservation = (seatNumber) => {
-    window.confirm(`${seatNumber}번 좌석을 예약하시겠습니까?`) &&
+  const seatReservation = (sNum, sGen) => {
+    !Boolean(sGen) &&
+      window.confirm(`${sNum}번 좌석을 예약하시겠습니까?`) &&
       axios({
         method: 'POST',
-        url: 'http://3.38.17.21:8080/reservation',
-        data: { seatNumber },
+        url: 'http://3.38.17.21:8080/reservations',
+        data: { sNum },
         withCredentials: true,
       })
         .then((res) => {
           console.log('orders res', res);
-          sessionStorage.removeItem('isAuthorized');
-          alert('좌석 예약 완료. 자동 로그아웃 됩니다');
-          history.push('/login');
+          alert('좌석 예약 완료.');
+          // sessionStorage.removeItem('isAuthorized');
+          // history.push('/login');
         })
         .catch((err) => {
           console.log('orders err', err.response.data);
@@ -128,8 +134,9 @@ function Room() {
                 key={seat.num}
                 num={seat.num}
                 gender={seat.gender}
+                name={seat.name}
                 onClick={() => {
-                  seatReservation(seat.num);
+                  seatReservation(seat.num, seat.gender);
                 }}
               />
             ))}

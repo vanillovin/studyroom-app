@@ -6,9 +6,17 @@
   border: 2px solid #1864ab;
   border-radius: 10px;
 }
+.mypage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
 .user {
   display: flex;
   align-items: center;
+  margin-right: 50px;
   margin-bottom: 15px;
 }
 .user .img {
@@ -20,6 +28,10 @@
 .user .info {
   display: flex;
   flex-direction: column;
+}
+.mpbtn-container {
+  display: flex;
+  align-items: center;
 }
 .mpbtn-container button {
   width: 90px;
@@ -33,13 +45,31 @@
   margin: 0 10px 15px 0;
 }
 .mpbtn-container button:hover {
-  background-color: #1864ab;
+  background-color: rgba(24, 100, 171, 0.6);
 }
-.mpbtn-container button:last-child {
+.mpbtn-container button.logout {
   background-color: #ff6b6b;
 }
-.mpbtn-container button:last-child:hover {
-  background-color: #c92a2a;
+.mpbtn-container button.logout:hover {
+  background-color: rgb(255, 107, 107, 0.6);
+}
+.tinfo {
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+.tinfo th {
+  text-align: left;
+  padding: 4px 6px;
+  border-right: 1px solid lightgray;
+}
+.tinfo tr {
+  border-bottom: 1px solid lightgray;
+}
+.tinfo tr:last-child {
+  border-bottom: none;
+}
+.tinfo td {
+  padding: 4px 6px;
 }
 @media screen and (max-width: 1000px) {
   .mypage-container {
