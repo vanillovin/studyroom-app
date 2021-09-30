@@ -94,12 +94,12 @@ function Room() {
   // };
 
   const seatReservation = (sNum, sGen) => {
-    !Boolean(sGen) &&
+    !sGen &&
       window.confirm(`${sNum}번 좌석을 예약하시겠습니까?`) &&
       axios({
         method: 'POST',
         url: 'http://3.38.17.21:8080/reservations',
-        data: { sNum },
+        data: { seatNumber: sNum },
         withCredentials: true,
       })
         .then((res) => {
