@@ -9,19 +9,19 @@
 .month {
   cursor: pointer;
   border: none;
-  width: 300px;
-  height: 200px;
+  width: 280px;
+  height: 180px;
   font-size: 40px;
   border-radius: 10px;
   background-color: #339af0;
   color: white;
-  margin: 100px;
+  margin: 110px;
   font-weight: 500;
 }
 
 .day:hover,
 .month:hover {
-  background-color: #1864ab;
+  background-color: rgba(24, 100, 171, 0.7);
 }
 
 @media screen and (max-width: 1000px) {

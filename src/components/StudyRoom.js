@@ -72,7 +72,7 @@ function Room() {
           seats.filter(({ num }) => !newSeatArr.find((f) => f.num === num))
         );
         const sortResult = result.sort((a, b) => a.num - b.num);
-        console.log(sortResult);
+        // console.log(sortResult);
         setSeats(sortResult);
       })
       .catch((err) => {
@@ -105,8 +105,8 @@ function Room() {
         .then((res) => {
           console.log('orders res', res);
           alert('좌석 예약 완료.');
-          // sessionStorage.removeItem('isAuthorized');
-          // history.push('/login');
+          sessionStorage.removeItem('isAuthorized');
+          history.push('/login');
         })
         .catch((err) => {
           console.log('orders err', err.response.data);

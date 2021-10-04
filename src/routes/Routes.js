@@ -10,29 +10,6 @@ import Login from './Login';
 import Main from './Main';
 import SignUp from './SignUp';
 
-// function AuthRoute(props) {
-//   console.log('AuthRoute', props);
-//   const history = useHistory();
-//   const [isLoading, setIsLoading] = useState(true);
-//   const [isLogin, setIsLogin] = useState(false);
-
-//   useEffect(() => {
-//     const handleLogin = () => {
-//       setIsLoading(true);
-//       const isAuthorized = sessionStorage.getItem('isAuthorized');
-//       console.log('isAuthorized', isAuthorized);
-//       setIsLogin(!!isAuthorized);
-//       setIsLoading(false);
-//     };
-//     handleLogin();
-//   }, [history]);
-
-//   if (isLoading) return <div>loading</div>;
-//   if (!isLogin) return <Redirect to="/login" />;
-
-//   return <Route {...props} component={Login} />;
-// }
-
 function Routes() {
   let isAuthorized = sessionStorage.getItem('isAuthorized');
   console.log('Routes isAuthorized', isAuthorized);
