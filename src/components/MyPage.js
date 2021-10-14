@@ -21,7 +21,7 @@ function MyPage() {
     axios
       .get('http://3.38.17.21:8080/my-page', { withCredentials: true })
       .then((res) => {
-        console.log('mypage res', res.data);
+        // console.log('mypage res', res.data);
         setUserInfo(res.data);
       })
       .catch((err) => {
@@ -37,7 +37,7 @@ function MyPage() {
           withCredentials: true,
         })
         .then((res) => {
-          console.log('exit res', res);
+          // console.log('exit res', res);
           sessionStorage.removeItem('isAuthorized');
           history.push('/login');
         })
@@ -73,13 +73,13 @@ function MyPage() {
         withCredentials: true,
       })
         .then((res) => {
-          console.log('exit res', res);
+          // console.log('exit res', res);
           alert(`${seatNumber}번으로 좌석 이동 완료. 자동 로그아웃됩니다.`);
           sessionStorage.removeItem('isAuthorized');
           history.push('/login');
         })
         .catch((err) => {
-          alert('exit err', err.response.data.message);
+          alert('좌석이동오류', err.response.data.message);
           const errMsg = '이미 좌석이 사용중입니다.';
           if (err.response.data.message === errMsg) alert(errMsg);
         });
@@ -135,7 +135,7 @@ function MyPage() {
             onClick={() => infoActive('fullInfo')}
             style={{ backgroundColor: fullInfo && '#4dafff' }}
           >
-            전체
+            전체내역
           </li>
           <li
             onClick={() => infoActive('orders')}

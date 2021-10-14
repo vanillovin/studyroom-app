@@ -20,12 +20,8 @@ function Login() {
     });
   };
 
-  // 빈문자열만확인?
   const fetchLogin = (e) => {
     e.preventDefault();
-    // sessionStorage.setItem('isAuthorized', 'true');
-    // history.push('/');
-
     if (loginId !== '' && password !== '') {
       let body = {
         loginId,
@@ -38,13 +34,13 @@ function Login() {
         withCredentials: true,
       })
         .then((res) => {
-          console.log('login res /', res);
+          // console.log('login res /', res);
           alert('로그인이 완료됐습니다');
           sessionStorage.setItem('isAuthorized', 'true');
           history.push('/');
         })
         .catch((err) => {
-          console.log('login err /', err.response.data);
+          // console.log('login err /', err.response.data);
           const errMsg = err.response.data.message;
           const idErrMsg = '아이디를 잘못 입력하셨습니다.';
           const pwErrMsg = '비밀번호가 틀렸습니다.';

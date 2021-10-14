@@ -14,9 +14,11 @@ function BuyVoucher() {
       withCredentials: true,
     })
       .then((res) => {
-        console.log('orders res', res);
+        alert(
+          `${time === 'DAY' ? '하루' : '한달'} 이용권 구매가 완료됐습니다.`
+        );
       })
-      .catch((err) => console.log('orders err', err.response.data));
+      .catch((err) => alert(err.response.data));
   };
 
   const askPurchase = (e) => {

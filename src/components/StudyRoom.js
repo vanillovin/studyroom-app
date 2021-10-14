@@ -56,7 +56,6 @@ function Room() {
     { num: 46, name: '', gender: '' },
     { num: 47, name: '', gender: '' },
   ]);
-  // const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     axios
@@ -72,26 +71,14 @@ function Room() {
           seats.filter(({ num }) => !newSeatArr.find((f) => f.num === num))
         );
         const sortResult = result.sort((a, b) => a.num - b.num);
-        // console.log(sortResult);
         setSeats(sortResult);
       })
       .catch((err) => {
-        console.log(err.response.data);
-        alert(err.response.data.message);
+        // console.log(err.response.data);
+        // alert(err.response.data.message);
         history.push('/login');
       });
   }, [history]);
-
-  // console.log('rendering');
-
-  // const openModal = (num) => {
-  //   setSeatNumber(num);
-  //   setShowModal(true);
-  // };
-
-  // const closeModal = () => {
-  //   setShowModal(false);
-  // };
 
   const seatReservation = (sNum, sGen) => {
     !sGen &&
@@ -104,7 +91,7 @@ function Room() {
       })
         .then((res) => {
           console.log('orders res', res);
-          alert('좌석 예약 완료.');
+          alert('좌석 예약이 완료됐습니다. 자동 로그아웃됩니다');
           sessionStorage.removeItem('isAuthorized');
           history.push('/login');
         })
@@ -146,8 +133,6 @@ function Room() {
           </div>
         </div>
       </div>
-
-      {/* <Modal open={showModal} closeModal={closeModal} seatNumber={seatNumber} /> */}
     </>
   );
 }

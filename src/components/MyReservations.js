@@ -10,7 +10,7 @@ const MyReservations = ({ timeStr }) => {
         withCredentials: true,
       })
       .then((res) => {
-        console.log('mypage reservations res', res.data);
+        // console.log('mypage reservations res', res.data);
         const data = res.data._embedded.reservationResultDtoList;
         setMyReservations(data);
       })
@@ -30,11 +30,28 @@ const MyReservations = ({ timeStr }) => {
     >
       {myReservations ? (
         <div className="orders">
-          {myReservations.map((reservation) => (
+          {myReservations.map((reservation, i) => (
             <div key={reservation.reservationTime} className="order">
-              <div>{reservation.name}님</div>
-              <div>좌석번호: {reservation.seatNumber}</div>
-              <div>{timeStr(reservation.reservationTime)}</div>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRight: '1px solid gray',
+                  width: 30,
+                }}
+              >
+                {i}
+              </div>
+              <div
+                style={{
+                  padding: '6px 14px',
+                }}
+              >
+                <div>{reservation.name}님</div>
+                <div>좌석번호: {reservation.seatNumber}</div>
+                <div>{timeStr(reservation.reservationTime)}</div>
+              </div>
             </div>
           ))}
         </div>

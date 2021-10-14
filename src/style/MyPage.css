@@ -87,10 +87,10 @@
 .tinfo th {
   text-align: left;
   padding: 6px 8px;
-  border-right: 1px solid lightgray;
+  border-right: 1px solid gray;
 }
 .tinfo tr {
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid gray;
 }
 .tinfo tr:last-child {
   border-bottom: none;
@@ -99,12 +99,11 @@
   padding: 6px 16px 6px 8px;
 }
 .orders {
-  width: 400px;
-  border: 1px solid black;
+  width: 360px;
 }
 .order {
-  border-bottom: 1px solid black;
-  padding: 6px 14px;
+  display: flex;
+  border-bottom: 1px solid gray;
 }
 .order:last-child {
   border-bottom: none;

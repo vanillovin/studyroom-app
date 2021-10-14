@@ -12,23 +12,33 @@ function NavBar() {
           </div>
           <ul>
             <li>
-              <NavLink exact to="/notice" activeClassName="active">
-                공지
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact to="/seats" activeClassName="active">
+              <NavLink
+                exact
+                to="/seats"
+                className="menu"
+                activeClassName="active"
+              >
                 좌석현황
               </NavLink>
             </li>
             <li>
-              <NavLink exact to="/buy" activeClassName="active">
+              <NavLink
+                exact
+                to="/buy"
+                className="menu"
+                activeClassName="active"
+              >
                 이용권구매
               </NavLink>
             </li>
             <li>
-              <NavLink exact to="/mypage" activeClassName="active">
-                내정보
+              <NavLink
+                exact
+                to="/mypage"
+                className="menu"
+                activeClassName="active"
+              >
+                마이페이지
               </NavLink>
             </li>
           </ul>

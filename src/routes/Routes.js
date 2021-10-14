@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-  useHistory,
 } from 'react-router-dom';
 import Login from './Login';
 import Main from './Main';
@@ -18,10 +17,10 @@ function Routes() {
     <Router>
       {!isAuthorized ? <Redirect to="/login" /> : <Redirect to="/" />}
       <Switch>
-        {/* <AuthRoute /> */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/" component={Main} />
+        <Redirect path="*" to="/" />
       </Switch>
     </Router>
   );

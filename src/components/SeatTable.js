@@ -21,7 +21,7 @@ function SeatTable({ num, gender, name, onClick }) {
           {!(gender === '') ? (gender === 'MALE' ? '♂' : '♀') : null}
         </span>
       </div>
-      <div>{name ? `${name.slice(0, 1)}*${name.slice(2, 3)}` : ''}</div>
+      <div>{name ? `${name.slice(0, 1)}*${name.slice(2, 4)}` : ''}</div>
     </div>
   );
 }

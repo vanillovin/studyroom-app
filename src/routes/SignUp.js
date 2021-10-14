@@ -3,11 +3,6 @@ import React, { useState, useEffect } from 'react';
 import '../style/SignUp.css';
 
 function Signup({ history }) {
-  useEffect(() => {
-    console.log('signup effect');
-    console.log('history', history);
-  }, [history]);
-
   const [signupInputs, setSignupInputs] = useState({
     name: '',
     age: '',
@@ -91,12 +86,12 @@ function Signup({ history }) {
   };
 
   const onSignupSubmit = () => {
-    console.log('name', name, '/ 유효성검사', checkUsername());
-    console.log('id', loginId, '/ 유효성검사', checkUserid());
-    console.log('age', age, '/ 유효성검사', checkAge());
-    console.log('gender', gender, '/ 유효성검사', checkGender());
-    console.log('password', password, '/ 유효성검사', checkPW());
-    console.log('checkPassword', checkPassword, '/ 유효성검사', checkPW());
+    // console.log('name', name, '/ 유효성검사', checkUsername());
+    // console.log('id', loginId, '/ 유효성검사', checkUserid());
+    // console.log('age', age, '/ 유효성검사', checkAge());
+    // console.log('gender', gender, '/ 유효성검사', checkGender());
+    // console.log('password', password, '/ 유효성검사', checkPW());
+    // console.log('checkPassword', checkPassword, '/ 유효성검사', checkPW());
 
     if (
       checkUsername() === true &&
@@ -105,11 +100,11 @@ function Signup({ history }) {
       checkGender() === true &&
       checkPW() === true
     ) {
-      console.log('가입완료');
+      alert('가입이 완료됐습니다.');
       fetchSignUp();
       history.push('/login'); // 로그인페이지로 이동
     } else {
-      console.log('빈 문자열 or 조건 불만족');
+      alert('모두 입력해 주세요.');
     }
   };
 

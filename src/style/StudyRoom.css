@@ -58,11 +58,9 @@
   border-radius: 6px;
 }
 .table > div {
-  /* border: 1px solid black; */
   display: flex;
 }
 .gender {
-  /* border: 1px solid black; */
   padding: 0%;
   margin-left: 4px;
   font-size: 14px;

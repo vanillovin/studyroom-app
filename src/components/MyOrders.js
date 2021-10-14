@@ -8,7 +8,7 @@ const MyOrders = ({ timeStr }) => {
     axios
       .get('http://3.38.17.21:8080/my-page/orders', { withCredentials: true })
       .then((res) => {
-        console.log('mypage orders res', res.data);
+        // console.log('mypage orders res', res.data);
         const data = res.data._embedded.orderResultDtoList;
         setMyOrders(data);
       })
@@ -28,13 +28,30 @@ const MyOrders = ({ timeStr }) => {
     >
       {myOrders ? (
         <div className="orders">
-          {myOrders.map((order) => (
+          {myOrders.map((order, i) => (
             <div key={order.orderDate} className="order">
-              <div>{order.name}님</div>
-              <div>{timeStr(order.orderDate)}</div>
-              <div>
-                {order.ticket === 'DAY' ? '하루이용권' : '한달이용권'} (
-                {order.price}원)
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRight: '1px solid gray',
+                  width: 30,
+                }}
+              >
+                {i}
+              </div>
+              <div
+                style={{
+                  padding: '6px 14px',
+                }}
+              >
+                <div>{order.name}님</div>
+                <div>{timeStr(order.orderDate)}</div>
+                <div>
+                  {order.ticket === 'DAY' ? '하루이용권' : '한달이용권'} (
+                  {order.price}원)
+                </div>
               </div>
             </div>
           ))}
